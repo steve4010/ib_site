@@ -1,3 +1,95 @@
-baseURL: https://example.org/
-locale: en-us
-title: My New Hugo Project
+baseURL: "https://ideasblogger.com/"
+title: "IdeasBlogger"
+languageCode: "en-us"
+theme: "PaperMod"
+
+# Enable search (JSON output required for PaperMod fuse.js search)
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# Build options
+paginate: 10
+enableRobotsTXT: true
+buildFuture: false
+
+# Taxonomy/Category Settings
+taxonomies:
+  category: categories
+  tag: tags
+
+# Theme Parameters
+params:
+  env: production
+  description: "Fresh inspiration, DIY projects, and clever ideas for modern everyday living."
+  keywords: [DIY, inspiration, lifestyle, home decor, organization, smart living]
+  author: "IdeasBlogger"
+  
+  # Visual & Layout Settings
+  defaultTheme: auto # Options: light, dark, auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+
+  # Home Page Setup (Profile / Blog Mode)
+  homeInfoParams:
+    Title: "Welcome to IdeasBlogger ✨"
+    Content: >
+      Discover practical DIY projects, creative inspiration, and clever ideas to elevate your daily life.
+
+  # Social Icons (Displayed on home info and footer)
+  socialIcons:
+    - name: "pinterest"
+      url: "https://pinterest.com/"
+    - name: "instagram"
+      url: "https://instagram.com/"
+    - name: "youtube"
+      url: "https://youtube.com/"
+    - name: "rss"
+      url: "/index.xml"
+
+  # Cover Image Settings for Posts
+  cover:
+    hidden: false # Show cover image on post page
+    hiddenInList: false # Show cover image in post lists
+    hiddenInSingle: false
+
+  # Search Configuration
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 100
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys: ["title", "permalink", "summary", "content"]
+
+# Top Navigation Menu
+menu:
+  main:
+    - name: "Categories"
+      url: "/categories/"
+      weight: 10
+    - name: "Search"
+      url: "/search/"
+      weight: 20
+    - name: "About"
+      url: "/about/"
+      weight: 30
+
+# Markup settings for highlighters and TOC
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Allows raw HTML in Markdown (useful for custom buttons or affiliate disclosures)
+  tableOfContents:
+    endLevel: 4
+    startLevel: 2
+    ordered: false
